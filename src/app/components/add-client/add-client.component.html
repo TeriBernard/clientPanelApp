@@ -6,13 +6,16 @@
   </div>
   <div class="col-md-6"></div>
 </div>
-
+// Card to contain the Add Client form
 <div class="card">
   <div class="card-header">
     Add Client
   </div>
   <div class="card-body">
+    // Begin the form
     <form novalidate #f="ngForm" (ngSubmit)="onSubmit(f)">
+
+      // Div for adding the First Name
       <div class="form-group">
         <label for="firstName">First Name</label>
         <input 
@@ -33,6 +36,7 @@
         </div>
       </div>
 
+      // Div for adding the Last Name
       <div class="form-group">
         <label for="lastName">Last Name</label>
         <input 
@@ -53,6 +57,7 @@
         </div>
       </div>
 
+      // Div for adding the email
       <div class="form-group">
         <label for="email">Email</label>
         <input 
@@ -73,6 +78,7 @@
         </div>
       </div>
 
+      // Div for adding Phone Number  
       <div class="form-group">
         <label for="phone">Phone Number</label>
         <input 
@@ -93,7 +99,7 @@
         </div>
       </div>
 
-
+      // Div for displaying the balance, disabled at first
       <div class="form-group">
         <label for="balance">Balance</label>
         <input 
@@ -106,8 +112,8 @@
         >
       </div>
 
+      // Submit form information
       <input type="submit" value="Submit" class="btn btn-primary btn-block">
-
     </form>
   </div>
 </div>
