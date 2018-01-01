@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { FlashMessagesModule } from 'angular2-flash-messages';
 
 // Connect to Firebase Database
 import { AngularFireModule } from 'angularfire2';
@@ -52,7 +53,8 @@ const appRoutes = [
     FormsModule,
     RouterModule.forRoot(appRoutes),
     AngularFireModule.initializeApp( environment.firebase, 'clientpanel'),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    FlashMessagesModule.forRoot()
   ],
   providers: [
     AngularFireDatabase,
