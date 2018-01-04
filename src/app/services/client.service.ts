@@ -11,6 +11,7 @@ export class ClientService {
 
   constructor(private db: AngularFireDatabase) { 
     this.clientsRef = this.db.list('clients');
+    // following declaration code came from angularfire2 documentation
     this.clients = this.clientsRef.snapshotChanges().map(changes => {
       return changes.map(c => ({ key: c.payload.key, ...c.payload.val() }));
     });
@@ -18,5 +19,10 @@ export class ClientService {
 
   getClients(){
     return this.clients;
+  }
+
+  // Add new client. Called in add-client component
+  newClient(client: Client){
+    this.clientsRef.push(client);
   }
 }
