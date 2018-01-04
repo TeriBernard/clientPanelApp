@@ -21,6 +21,12 @@ export class ClientService {
     return this.clients;
   }
 
+  // Fetch single client based on id. Called in client-details component
+  getClient(id: string){
+    this.client = this.db.object('/clients/'+id).valueChanges();
+    return this.client;
+  }
+
   // Add new client. Called in add-client component
   newClient(client: Client){
     this.clientsRef.push(client);

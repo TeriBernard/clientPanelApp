@@ -30,7 +30,8 @@ const appRoutes = [
   { path: '', component: DashboardComponent },
   { path: 'register', component: RegisterComponent},
   { path: 'login', component: LoginComponent },
-  { path: 'add-client', component: AddClientComponent }
+  { path: 'add-client', component: AddClientComponent },
+  { path: 'client/:id', component: ClientDetailsComponent }
 ];
 
 @NgModule({
@@ -52,7 +53,7 @@ const appRoutes = [
     BrowserModule,
     FormsModule,
     RouterModule.forRoot(appRoutes),
-    AngularFireModule.initializeApp( environment.firebase, 'clientpanel'),
+    AngularFireModule.initializeApp(environment.firebase, 'clientpanel'),
     AngularFireAuthModule,
     FlashMessagesModule.forRoot()
   ],

@@ -1,3 +1,42 @@
-<p>
-  client-details works!
-</p>
+<!-- Back to Dashboard and Edit/Delete div -->
+<div class="row">
+  <!-- Back to Dashboard -->
+  <div class="col-md-6">
+    <a routerLink="/" href="#" class="btn btn-link">
+      <i class="fa fa-arrow-circle-o-left"></i> Back to Dashboard
+    </a>
+  </div>
+<!-- Edit and Delete Buttons -->
+  <div class="col-md-6">
+    <div class="btn-group pull-right">
+      <a routerLink="['/edit-client/'+id]" href="#" class="btn btn-dark">Edit</a>
+      <button class="btn btn-danger" (click)="onDeleteClick()">Delete</button>
+    </div>
+  </div>
+</div>
+
+<hr>
+<!-- Display Client Details -->
+<div  *ngIf="client" class="card">
+  <h3 class="card-header">{{client.firstName}} {{client.lastName}}</h3>
+  <div class="card-body">
+
+    <div class="row">
+      <div class="col-md-8">
+        <h4>Client ID: {{id}}</h4>
+      </div>
+      <div class="col-md-4">
+        <h3 class="pull-right">
+          Balance
+        </h3>
+      </div>
+    </div>
+
+    <hr>
+    <ul class="list-group">
+      <li class="list-group-item">Client email: {{client.email}}</li>
+      <li class="list-group-item">Client phone: {{client.phone}}</li>
+    </ul>
+  </div>
+</div>
+
