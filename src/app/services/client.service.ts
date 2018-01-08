@@ -31,4 +31,14 @@ export class ClientService {
   newClient(client: Client){
     this.clientsRef.push(client);
   }
+
+  // Edit client information. Called in edit-client component
+  updateClient(id:string, client:Client){
+    return this.clientsRef.update(id, client);
+  }
+
+  // Delete client from database. Called in client-details component
+  deleteClient(id:string){
+    return this.clientsRef.remove(id);
+  }
 }
