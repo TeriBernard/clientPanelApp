@@ -24,6 +24,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { ClientService } from './services/client.service';
+import { AuthService } from './services/auth.service';
 
 // Create Routes
 const appRoutes = [
@@ -32,7 +33,8 @@ const appRoutes = [
   { path: 'login', component: LoginComponent },
   { path: 'add-client', component: AddClientComponent },
   { path: 'client/:id', component: ClientDetailsComponent },
-  { path: 'edit-client/:id', component: EditClientComponent }
+  { path: 'edit-client/:id', component: EditClientComponent },
+  { path: 'login', component: LoginComponent}
 ];
 
 @NgModule({
@@ -61,7 +63,8 @@ const appRoutes = [
   providers: [
     AngularFireDatabase,
     AngularFireDatabaseModule,
-    ClientService
+    ClientService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })

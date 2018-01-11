@@ -53,7 +53,7 @@ export class ClientDetailsComponent implements OnInit {
       });
       this.router.navigate(['/']);
     } else {
-      this.router.navigate(['/client-details/'this.id]);
+      this.router.navigate(['/client-details/'+this.id]);
     }
     
   }
