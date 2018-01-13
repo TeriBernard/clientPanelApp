@@ -10,7 +10,6 @@ import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/dat
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../environments/environment';
 
-
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ClientsComponent } from './components/clients/clients.component';
@@ -23,18 +22,21 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+
 import { ClientService } from './services/client.service';
 import { AuthService } from './services/auth.service';
 
+import { AuthGuard } from './guards/auth.guard';
+
 // Create Routes
 const appRoutes = [
-  { path: '', component: DashboardComponent },
+  { path: '', component: DashboardComponent, canActivate:[AuthGuard]},
   { path: 'register', component: RegisterComponent},
   { path: 'login', component: LoginComponent },
-  { path: 'add-client', component: AddClientComponent },
-  { path: 'client/:id', component: ClientDetailsComponent },
-  { path: 'edit-client/:id', component: EditClientComponent },
-  { path: 'login', component: LoginComponent}
+  { path: 'add-client', component: AddClientComponent, canActivate:[AuthGuard] },
+  { path: 'client/:id', component: ClientDetailsComponent, canActivate:[AuthGuard] },
+  { path: 'edit-client/:id', component: EditClientComponent, canActivate:[AuthGuard] },
+  { path: '**', component: PageNotFoundComponent}
 ];
 
 @NgModule({
@@ -64,7 +66,8 @@ const appRoutes = [
     AngularFireDatabase,
     AngularFireDatabaseModule,
     ClientService,
-    AuthService
+    AuthService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })
