@@ -25,6 +25,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 
 import { ClientService } from './services/client.service';
 import { AuthService } from './services/auth.service';
+import { SettingsService } from './services/settings.service';
 
 import { AuthGuard } from './guards/auth.guard';
 
@@ -67,7 +68,9 @@ const appRoutes = [
     AngularFireDatabaseModule,
     ClientService,
     AuthService,
+    SettingsService,
     AuthGuard
+    
   ],
   bootstrap: [AppComponent]
 })
